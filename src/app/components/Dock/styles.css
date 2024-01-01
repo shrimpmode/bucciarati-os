@@ -1,0 +1,18 @@
+.dock-container:hover {
+    transition: height 0.5s ease-in-out;
+    height: 88px;
+}
+.dock-container {
+    transition: height 0.5s ease-in-out;
+    height: 6px;
+}
+.dock-container:hover > .dock-apps {
+    transform: translateY(0);
+    transition: all 0.5s ease-in-out;
+}
+
+
+.dock-apps {
+    transition: all 0.5s ease-in-out;
+    transform: translateY(200%);
+}
