@@ -4,11 +4,11 @@ import {SystemMenu} from "@/app/components/MenuBar/SystemMenu";
 
 export const MenuBar = () => {
     return (
-        <div className="flex justify-between items-center p-1 bg-neutral-200">
+        <div className="flex justify-between items-center py-1 px-4 bg-neutral-200 text-sm">
             <div>
                 <SystemMenu />
             </div>
-            <div className="flex gap-2">
+            <div className="flex gap-4 items-center">
                 <StatusMenu />
                 <DateTime />
             </div>
