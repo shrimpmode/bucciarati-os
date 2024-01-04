@@ -1,5 +1,6 @@
 
 export type AppMetadata = {
     name: string
-    iconSrc: any
+    iconSrc: any,
+    Component: () => JSX.Element
 }

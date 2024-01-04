@@ -1,6 +1,9 @@
+import { AppMetadata } from '../types'
+import { Notes } from './Notes'
 import iconSrc from './notes.png'
 
-export const notes = {
+export const notes:AppMetadata = {
     name: "Notes",
-    iconSrc
+    iconSrc,
+    Component: Notes,
 }
