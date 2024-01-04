@@ -1,6 +1,6 @@
-import iconSrc from './icon.png'
+import iconSrc from "./icon.png";
 
 export const systemPreferences = {
-    name: "System Preferences",
-    iconSrc
-}
+  name: "System Preferences",
+  iconSrc,
+};

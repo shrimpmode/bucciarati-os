@@ -1,52 +1,52 @@
-import { AppMetadata } from "@/app/components/applications/types"
-import { useReducer } from "react"
+import { AppMetadata } from "@/app/components/applications/types";
+import { useReducer } from "react";
 
 enum ActionTypes {
-    ADD_APPLICATION = "ADD_APPLICATION",
+  ADD_APPLICATION = "ADD_APPLICATION",
 }
 
 type Action = {
-    type: ActionTypes
-    payload: AppMetadata
-}
+  type: ActionTypes;
+  payload: AppMetadata;
+};
 
-type State =  {
-    applications: AppMetadata[]
-}
+type State = {
+  applications: AppMetadata[];
+};
 
 const initialState = {
-    applications: [],
-}
+  applications: [],
+};
 
-const reducer = (state:State, action: Action) => {
-
-    switch (action.type) {
-        case ActionTypes.ADD_APPLICATION:
-            return {
-                ...state,
-                applications: [...state.applications, action.payload],
-            }
-        default:
-            return state
-    }
-}
+const reducer = (state: State, action: Action) => {
+  switch (action.type) {
+    case ActionTypes.ADD_APPLICATION:
+      return {
+        ...state,
+        applications: [...state.applications, action.payload],
+      };
+    default:
+      return state;
+  }
+};
 
 export const useApplications = () => {
-    const [state, dispatch] = useReducer(reducer, initialState)
+  const [state, dispatch] = useReducer(reducer, initialState);
 
-    const addApplication = (application: any) => {
-        dispatch({
-            type: ActionTypes.ADD_APPLICATION,
-            payload: application,
-        })
-    }
+  const addApplication = (application: any) => {
+    if (!state.applications.find((app: any) => app.name === application.name))
+      dispatch({
+        type: ActionTypes.ADD_APPLICATION,
+        payload: application,
+      });
+  };
 
-    return {
-        applications : {
-            state,
-            actions: {
-                addApplication,
-            },
-        }
-    }
-}
+  return {
+    applications: {
+      state,
+      actions: {
+        addApplication,
+      },
+    },
+  };
+};

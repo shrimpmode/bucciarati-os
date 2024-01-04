@@ -1,6 +1,6 @@
-import iconSrc from './photo-booth.png'
+import iconSrc from "./photo-booth.png";
 
 export const photoBooth = {
-    name: "Photo Booth",
-    iconSrc
-}
+  name: "Photo Booth",
+  iconSrc,
+};

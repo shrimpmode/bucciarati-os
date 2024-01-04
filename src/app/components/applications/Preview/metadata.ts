@@ -1,6 +1,6 @@
-import iconSrc from './preview.png'
+import iconSrc from "./preview.png";
 
 export const preview = {
-    name: "Preview",
-    iconSrc
-}
+  name: "Preview",
+  iconSrc,
+};

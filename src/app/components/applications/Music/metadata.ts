@@ -1,6 +1,6 @@
-import iconSrc from './music.png'
+import iconSrc from "./music.png";
 
 export const music = {
-    name: "Music",
-    iconSrc
-}
+  name: "Music",
+  iconSrc,
+};

@@ -1,5 +1,5 @@
-import iconSrc from './finder.png'
+import iconSrc from "./finder.png";
 export const finder = {
-    name: "Finder",
-    iconSrc
-}
+  name: "Finder",
+  iconSrc,
+};
