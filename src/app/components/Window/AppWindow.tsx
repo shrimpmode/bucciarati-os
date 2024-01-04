@@ -11,7 +11,7 @@ type WindowProps = {
 
 export const AppWindow = ({ app }: WindowProps) => {
     const windowRef = useRef<HTMLDivElement>(null)
-    const {position, onMouseDown, cursorClass} = useDraggable(windowRef)
+    const {position, onMouseDown} = useDraggable(windowRef)
 
     const Component = app.Component
     return (
@@ -19,7 +19,7 @@ export const AppWindow = ({ app }: WindowProps) => {
             left: position.x,
             top: position.y,
         }} ref={windowRef} >
-            <WindowTopBar onMouseDown={onMouseDown} />
+            <WindowTopBar onMouseDown={onMouseDown} app={app}/>
             <div className="w-full h-full">
                 {Component ? <Component /> : null}
             </div>

@@ -3,6 +3,7 @@ import { useReducer } from "react";
 
 enum ActionTypes {
   ADD_APPLICATION = "ADD_APPLICATION",
+  REMOVE_APPLICATION = "REMOVE_APPLICATION",
 }
 
 type Action = {
@@ -25,6 +26,13 @@ const reducer = (state: State, action: Action) => {
         ...state,
         applications: [...state.applications, action.payload],
       };
+    case ActionTypes.REMOVE_APPLICATION:
+      return {
+        ...state,
+        applications: state.applications.filter(
+          (app: AppMetadata) => app.name !== action.payload.name
+        ),
+      };
     default:
       return state;
   }
@@ -41,11 +49,20 @@ export const useApplications = () => {
       });
   };
 
+  const removeApplication = (application: any) => {
+    if (state.applications.find((app: any) => app.name === application.name))
+      dispatch({
+        type: ActionTypes.REMOVE_APPLICATION,
+        payload: application,
+      });
+  };
+
   return {
     applications: {
       state,
       actions: {
         addApplication,
+        removeApplication,
       },
     },
   };
