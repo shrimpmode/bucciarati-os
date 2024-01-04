@@ -3,16 +3,20 @@
 import AppContext from "@/context/AppContext";
 import { useContext } from "react";
 import { AppMetadata } from "../applications/types";
+import { AppWindow } from "../Window/AppWindow";
 
 export const Desktop = () => {
 
     const context = useContext(AppContext);
+    console.log(context.applications.state.applications)
     return (
-        <div>
+        <div className="relative">
+            desktop
             {
                 context.applications.state.applications.map((app: AppMetadata) => {
-                    const Component = app.Component
-                    return Component ? <Component key={app.name} /> : null
+                    return (
+                        <AppWindow app={app} key={app.name}/>
+                    )
                 })
             }
 
