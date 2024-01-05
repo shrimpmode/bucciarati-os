@@ -1,6 +1,5 @@
 export const DateTime = () => {
   const date = new Date();
-  // format to Tue 2 Jan 18:36 with intl
 
   const myDate = new Intl.DateTimeFormat("en-GB", {
     weekday: "short",
