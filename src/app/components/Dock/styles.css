@@ -1,6 +1,6 @@
 .dock-container:hover {
     transition: height 0.5s ease-in-out;
-    height: 72px;
+    height: 80px;
 }
 .dock-container {
     transition: height 0.5s ease-in-out;

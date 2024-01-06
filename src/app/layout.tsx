@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "./globals.css";
 import { AppProvider } from "@/context/AppContext";
+import {StoreProvider} from '@/store/Provider'
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -20,9 +21,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <AppProvider>
-        <body className={roboto.className}>{children}</body>
-      </AppProvider>
+      <StoreProvider>
+        <AppProvider>
+          <body className={roboto.className}>{children}</body>
+        </AppProvider>
+      </StoreProvider>
     </html>
   );
 }

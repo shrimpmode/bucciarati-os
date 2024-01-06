@@ -117,6 +117,12 @@ export const useApplications = () => {
       });
   };
 
+  const isApplicationOpen = (application: AppMetadata) => {
+    return state.applications.find(
+      (app: Application) => app.metadata.name === application.name,
+    );
+  };
+
   const applications: ApplicationModule = {
     state,
     actions: {

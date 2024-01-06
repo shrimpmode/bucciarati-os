@@ -12,14 +12,20 @@ export const ApplicationsList = () => {
     <>
       {apps.map((app) => {
         return (
-          <ApplicationIcon
-            src={app.iconSrc}
-            alt={app.name}
-            key={app.name}
-            onClick={() => {
-              applications.actions.addApplication(app);
-            }}
-          />
+          <div
+              key={app.name}
+            className="flex flex-col items-center gap-1"
+          >
+            <ApplicationIcon
+              src={app.iconSrc}
+              alt={app.name}
+              onClick={() => {
+                applications.actions.addApplication(app);
+              }}
+            />
+
+            <div className="w-1 h-1 bg-neutral-50 rounded-full"></div>
+          </div>
         );
       })}
     </>
