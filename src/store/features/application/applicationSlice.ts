@@ -1,35 +1,49 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
+import {createApplication} from "@/store/features/application/Application";
+import {Application, AppMetadata} from "@/app/types/application";
 
 export interface CounterState {
     value: number
+    applications: Application[]
 }
 
 const initialState: CounterState = {
     value: 69,
+    applications: []
 }
 
-export const counterSlice = createSlice({
-    name: 'counter',
+export const applicationsSlice = createSlice({
+    name: 'apps',
     initialState,
     reducers: {
-        increment: (state) => {
-            // Redux Toolkit allows us to write "mutating" logic in reducers. It
-            // doesn't actually mutate the state because it uses the Immer library,
-            // which detects changes to a "draft state" and produces a brand new
-            // immutable state based off those changes
-            state.value += 1
+        addApplication: (state, action: PayloadAction<AppMetadata>) => {
+            if(!state.applications.find(app => app.metadata.name === action.payload.name))
+                state.applications.push(createApplication(action.payload))
+            else {
+                const app = state.applications.find(app => app.metadata.name === action.payload.name)
+                if(app) {
+                    app.minimized = false
+                }
+
+            }
         },
-        decrement: (state) => {
-            state.value -= 1
+        minimizeApplication: (state, action: PayloadAction<AppMetadata>) => {
+            const app = state.applications.find(app => app.metadata.name === action.payload.name)
+            if(app) {
+                app.minimized = true
+            }
         },
-        incrementByAmount: (state, action: PayloadAction<number>) => {
-            state.value += action.payload
-        },
+        removeApplication: (state, action: PayloadAction<AppMetadata>) => {
+            state.applications = state.applications.filter(app => app.metadata.name !== action.payload.name)
+        }
     },
 })
 
-// Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = counterSlice.actions
+export const {
+    addApplication,
+    minimizeApplication,
+    removeApplication
+} = applicationsSlice.actions
 
-export default counterSlice.reducer
+export default applicationsSlice.reducer

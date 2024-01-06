@@ -1,21 +1,22 @@
 "use client";
 
-import AppContext from "@/context/AppContext";
-import { AppMetadata } from "../applications/types";
-import { useContext } from "react";
+import { useDispatch} from "react-redux";
+import { minimizeApplication, removeApplication } from "@/store/features/application/applicationSlice";
+import {AppMetadata} from "@/app/types/application";
 
 type WindowTopBarProps = {
   onMouseDown: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
   app: AppMetadata;
 };
 export const WindowTopBar = ({ onMouseDown, app }: WindowTopBarProps) => {
-  const { applications } = useContext(AppContext);
+
+  const dispatch = useDispatch()
   const handleClose = () => {
-    applications.actions.removeApplication(app);
+    dispatch(removeApplication(app))
   };
 
   const handleMinimize = () => {
-    applications.actions.minimizeApplication(app);
+    dispatch(minimizeApplication(app))
   };
 
   return (

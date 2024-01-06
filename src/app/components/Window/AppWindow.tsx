@@ -3,18 +3,19 @@
 import { useRef } from "react";
 import { WindowTopBar } from "./WindowTopBar";
 import { useDraggable } from "./useDraggable";
-import { Application } from "@/context/modules/Application";
+
+import {Application} from "@/app/types/application";
 
 type WindowProps = {
   app: Application;
+  component?: React.ReactNode
 };
 
-export const AppWindow = ({ app }: WindowProps) => {
+export const AppWindow = ({ app, component }: WindowProps) => {
   const windowRef = useRef<HTMLDivElement>(null);
   const { position, onMouseDown } = useDraggable(windowRef);
 
-  const Component = app.metadata.Component;
-  return (
+  return component ? (
     <div
       className="resize w-[800px] overflow-hidden absolute"
       style={{
@@ -25,7 +26,7 @@ export const AppWindow = ({ app }: WindowProps) => {
       ref={windowRef}
     >
       <WindowTopBar onMouseDown={onMouseDown} app={app.metadata} />
-      <div className="w-full h-full">{Component ? <Component /> : null}</div>
+      <div className="w-full h-full">{component}</div>
     </div>
-  );
+  ): null;
 };

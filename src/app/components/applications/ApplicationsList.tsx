@@ -1,13 +1,12 @@
 "use client";
 
-import { useContext } from "react";
 import { apps } from "../applications/apps";
 import { ApplicationIcon } from "./ApplicationIcon";
-import AppContext from "@/context/AppContext";
+import {addApplication} from '@/store/features/application/applicationSlice'
+import {useDispatch} from 'react-redux'
 
 export const ApplicationsList = () => {
-  const { applications } = useContext(AppContext);
-
+  const dispatch = useDispatch()
   return (
     <>
       {apps.map((app) => {
@@ -20,7 +19,7 @@ export const ApplicationsList = () => {
               src={app.iconSrc}
               alt={app.name}
               onClick={() => {
-                applications.actions.addApplication(app);
+                dispatch(addApplication(app));
               }}
             />
 
