@@ -1,0 +1,14 @@
+/*change width from 0 to 100%*/
+@keyframes booting {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+.animate-booting {
+    width: 0;
+    animation: booting 3s ease-in-out forwards;
+}
