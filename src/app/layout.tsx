@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "./globals.css";
 import { AppProvider } from "@/context/AppContext";
-import {StoreProvider} from '@/store/StoreProvider'
+import { StoreProvider } from "@/store/StoreProvider";
 
 export const metadata: Metadata = {
   title: "Create Next App",

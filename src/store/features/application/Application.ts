@@ -1,4 +1,4 @@
-import {Application, AppMetadata} from "@/app/types/application";
+import { Application, AppMetadata } from "@/app/types/application";
 
 export function createApplication(metadata: AppMetadata): Application {
   return {

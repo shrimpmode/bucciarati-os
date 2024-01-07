@@ -1,31 +1,29 @@
-import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export enum AppStatus {
-    BOOTING,
-    RUNNING,
-    SHUTTING_DOWN,
-    DEFAULT
+  BOOTING,
+  RUNNING,
+  SHUTTING_DOWN,
+  DEFAULT,
 }
 export interface BootingState {
-    appStatus: AppStatus
+  appStatus: AppStatus;
 }
 
 const initialState: BootingState = {
-    appStatus: AppStatus.BOOTING
-}
+  appStatus: AppStatus.BOOTING,
+};
 
 export const bootingSlice = createSlice({
-    name: 'booting',
-    initialState,
-    reducers: {
-        setAppStatus: (state, action: PayloadAction<AppStatus>) => {
-            state.appStatus = action.payload
-        }
+  name: "booting",
+  initialState,
+  reducers: {
+    setAppStatus: (state, action: PayloadAction<AppStatus>) => {
+      state.appStatus = action.payload;
     },
-})
+  },
+});
 
-export const {
-    setAppStatus
-} = bootingSlice.actions
+export const { setAppStatus } = bootingSlice.actions;
 
-export default bootingSlice.reducer
+export default bootingSlice.reducer;

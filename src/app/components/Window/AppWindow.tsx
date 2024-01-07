@@ -4,11 +4,11 @@ import { useRef } from "react";
 import { WindowTopBar } from "./WindowTopBar";
 import { useDraggable } from "./useDraggable";
 
-import {Application} from "@/app/types/application";
+import { Application } from "@/app/types/application";
 
 type WindowProps = {
   app: Application;
-  component?: React.ReactNode
+  component?: React.ReactNode;
 };
 
 export const AppWindow = ({ app, component }: WindowProps) => {
@@ -28,5 +28,5 @@ export const AppWindow = ({ app, component }: WindowProps) => {
       <WindowTopBar onMouseDown={onMouseDown} app={app.metadata} />
       <div className="w-full h-full">{component}</div>
     </div>
-  ): null;
+  ) : null;
 };

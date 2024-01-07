@@ -1,8 +1,8 @@
 export type AppMetadata = {
-    name: string;
-    iconSrc: any;
+  name: string;
+  iconSrc: any;
 };
 export type Application = {
-    metadata: AppMetadata;
-    minimized: boolean;
+  metadata: AppMetadata;
+  minimized: boolean;
 };
