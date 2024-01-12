@@ -17,7 +17,7 @@ export const AppWindow = ({ app, component }: WindowProps) => {
 
   return component ? (
     <div
-      className="resize w-[800px] overflow-hidden absolute"
+      className="resize w-[800px] overflow-hidden absolute border border-neutral-600 rounded-md"
       style={{
         left: position.x,
         top: position.y,

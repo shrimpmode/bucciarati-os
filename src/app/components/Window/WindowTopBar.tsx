@@ -23,7 +23,7 @@ export const WindowTopBar = ({ onMouseDown, app }: WindowTopBarProps) => {
 
   return (
     <div
-      className="flex justify-between bg-neutral-200 w-full px-4 py-1 rounded-t-md "
+      className="flex justify-between bg-neutral-200 w-full px-4 py-2 rounded-t-md dark:bg-neutral-800 "
       onMouseDown={onMouseDown}
     >
       <div className="flex gap-2">

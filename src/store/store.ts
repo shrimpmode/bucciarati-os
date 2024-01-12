@@ -2,11 +2,13 @@ import { configureStore } from "@reduxjs/toolkit";
 
 import applicationReducer from "./features/application/applicationSlice";
 import bootingReducer from "./features/booting/bootingSlice";
+import notesReducer from "./features/notes/notesSlice";
 
 export const store = configureStore({
   reducer: {
     application: applicationReducer,
     booting: bootingReducer,
+    notes: notesReducer,
   },
 });
 
