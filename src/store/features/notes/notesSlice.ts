@@ -1,7 +1,7 @@
-import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export type Note = {
-    id: string;
+    id: number;
     title: string;
     content: string;
     created: Date;
@@ -15,7 +15,7 @@ export interface NoteState {
 const initialState: NoteState = {
     notes: [
         {
-            id: "1",
+            id: 1,
             title: "Note 1",
             content: "This is a note",
             created: new Date(),
@@ -45,6 +45,6 @@ export const notesSlice = createSlice({
     },
 });
 
-export const {addNote, removeNote, updateNote} = notesSlice.actions;
+export const { addNote, removeNote, updateNote } = notesSlice.actions;
 
 export default notesSlice.reducer;
