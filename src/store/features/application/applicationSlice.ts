@@ -2,15 +2,22 @@ import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import { createApplication } from "@/store/features/application/Application";
 import { Application, AppMetadata } from "@/app/types/application";
+import { commonApps } from "@/constants/applications/commonApps";
+import { recentApps } from "@/constants/applications/recentApps";
 
 export interface CounterState {
   value: number;
   applications: Application[];
+  recentApplications: AppMetadata[];
+  commonApplications: AppMetadata[];
 }
 
 const initialState: CounterState = {
   value: 69,
   applications: [],
+  recentApplications: recentApps,
+  commonApplications: commonApps
+  ,
 };
 
 export const applicationsSlice = createSlice({
