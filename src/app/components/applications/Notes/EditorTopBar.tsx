@@ -7,18 +7,20 @@ export const EditorTopBar = () => {
     id: new Date().getTime(),
     title: "",
     content: "",
-    created: new Date(),
-    updated: new Date(),
+    created: new Date().getTime(),
+    updated: new Date().getTime(),
   };
   const dispatch = useDispatch();
   return (
     <div className="dark:bg-neutral-800">
       <div
-        onClick={() => {
-          dispatch(addNote(emptyNote));
-        }}
       >
-        <MdEditNote className="text-2xl mx-2" />
+        <MdEditNote
+          className="text-2xl mx-2"
+          onClick={() => {
+            dispatch(addNote(emptyNote));
+          }}
+        />
       </div>
     </div>
   );

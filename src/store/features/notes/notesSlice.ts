@@ -4,8 +4,8 @@ export type Note = {
   id: number;
   title: string;
   content: string;
-  created: Date;
-  updated: Date;
+  created: Date | number;
+  updated: Date | number;
 };
 
 export interface NoteState {
@@ -18,8 +18,8 @@ const initialState: NoteState = {
       id: 1,
       title: "Note 1",
       content: "This is a note",
-      created: new Date(),
-      updated: new Date(),
+      created: new Date().getTime(),
+      updated: new Date().getTime(),
     },
   ],
 };
