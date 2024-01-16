@@ -1,4 +1,4 @@
-import { ApplicationsList } from "../applications/ApplicationsList";
+import { ApplicationsList } from "./ApplicationsList";
 import "./styles.css";
 
 export const Dock = () => {

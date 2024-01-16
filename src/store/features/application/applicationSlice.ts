@@ -5,19 +5,20 @@ import { Application, AppMetadata } from "@/app/types/application";
 import { commonApps } from "@/constants/applications/commonApps";
 import { recentApps } from "@/constants/applications/recentApps";
 
-export interface CounterState {
+export interface ApplicationState {
   value: number;
   applications: Application[];
   recentApplications: AppMetadata[];
   commonApplications: AppMetadata[];
+  currentApplication?: Application;
 }
 
-const initialState: CounterState = {
+const initialState: ApplicationState = {
   value: 69,
   applications: [],
   recentApplications: recentApps,
-  commonApplications: commonApps
-  ,
+  commonApplications: commonApps,
+  currentApplication: undefined,
 };
 
 export const applicationsSlice = createSlice({
@@ -53,10 +54,19 @@ export const applicationsSlice = createSlice({
         (app) => app.metadata.name !== action.payload.name,
       );
     },
+    setCurrentApplication: (state, action: PayloadAction<AppMetadata>) => {
+      state.currentApplication = state.applications.find(
+        (app) => app.metadata.name === action.payload.name,
+      );
+    },
   },
 });
 
-export const { addApplication, minimizeApplication, removeApplication } =
-  applicationsSlice.actions;
+export const {
+  addApplication,
+  minimizeApplication,
+  removeApplication,
+  setCurrentApplication,
+} = applicationsSlice.actions;
 
 export default applicationsSlice.reducer;

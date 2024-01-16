@@ -8,7 +8,7 @@ export const appComponentFactory = (name: AppMetadata["name"]) => {
     case "Notes":
       return <Notes />;
     case "Terminal":
-      return <Terminal />
+      return <Terminal />;
     default:
       return null;
   }

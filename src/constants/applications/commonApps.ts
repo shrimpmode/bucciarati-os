@@ -1,4 +1,3 @@
-
 import { calendar } from "./Calendar/metadata";
 import { finder } from "./Finder/metadata";
 import { music } from "./Music/metadata";

@@ -10,12 +10,25 @@ export const Desktop = () => {
   const applications = useSelector(
     (state: RootState) => state.application.applications,
   );
+
+  const currentApplication = useSelector(
+    (state: RootState) => state.application.currentApplication,
+  );
+
   return (
     <div className="relative">
+      {applications.currentApplication?.name} asd
       {applications.map((app: Application) => {
         const component = appComponentFactory(app.metadata.name);
+        const isAppActive =
+          app.metadata.name === currentApplication?.metadata?.name;
         return (
-          <AppWindow app={app} component={component} key={app.metadata.name} />
+          <AppWindow
+            app={app}
+            component={component}
+            key={app.metadata.name}
+            isAppActive={isAppActive}
+          />
         );
       })}
     </div>

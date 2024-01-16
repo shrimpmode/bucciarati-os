@@ -1,18 +1,22 @@
 "use client";
 
-import { ApplicationIcon } from "./ApplicationIcon";
-import { addApplication } from "@/store/features/application/applicationSlice";
+import { ApplicationIcon } from "../applications/ApplicationIcon";
+import {
+  addApplication,
+  setCurrentApplication,
+} from "@/store/features/application/applicationSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 import { Application } from "@/app/types/application";
 
 export const ApplicationsList = () => {
-  const { applications, commonApplications, recentApplications } = useSelector((state: RootState) => state.application);
+  const { applications, commonApplications, recentApplications } = useSelector(
+    (state: RootState) => state.application,
+  );
   const dispatch = useDispatch();
   return (
     <>
       <div className="flex">
-
         {commonApplications.map((app) => {
           const isRunning = applications.find(
             (a: Application) => a.metadata.name === app.name,
@@ -24,6 +28,7 @@ export const ApplicationsList = () => {
                 alt={app.name}
                 onClick={() => {
                   dispatch(addApplication(app));
+                  setCurrentApplication(app);
                 }}
               />
               {isRunning && (
@@ -58,8 +63,6 @@ export const ApplicationsList = () => {
           );
         })}
       </div>
-
-
     </>
   );
 };
