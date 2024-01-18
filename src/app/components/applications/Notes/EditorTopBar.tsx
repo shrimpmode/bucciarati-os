@@ -13,8 +13,7 @@ export const EditorTopBar = () => {
   const dispatch = useDispatch();
   return (
     <div className="dark:bg-neutral-800">
-      <div
-      >
+      <div>
         <MdEditNote
           className="text-2xl mx-2"
           onClick={() => {

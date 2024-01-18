@@ -23,7 +23,7 @@ export const AppWindow = ({ app, component, isAppActive }: WindowProps) => {
     dispatch(setCurrentApplication(app.metadata));
   };
 
-  console.log(windowRef.current?.clientHeight)
+  console.log(windowRef.current?.clientHeight);
 
   return component ? (
     <div
@@ -38,9 +38,16 @@ export const AppWindow = ({ app, component, isAppActive }: WindowProps) => {
       onClick={handleClick}
     >
       <WindowTopBar onMouseDown={onMouseDown} app={app.metadata} />
-      <div className="overflow-hidden" style={{
-        // height: windowRef.current?.clientHeight ? windowRef.current?.clientHeight - 30 : 0
-      }}>{component}</div>
+      <div
+        className="overflow-hidden"
+        style={
+          {
+            // height: windowRef.current?.clientHeight ? windowRef.current?.clientHeight - 30 : 0
+          }
+        }
+      >
+        {component}
+      </div>
     </div>
   ) : null;
 };
