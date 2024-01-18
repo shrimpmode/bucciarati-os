@@ -45,7 +45,7 @@ export const Terminal = () => {
 
   return (
     <div
-      className="min-h-[480px] min-w-[360px] bg-neutral-800 text-neutral-300 p-2 font-mono tracking-wide"
+      className="h-[400px] w-[600px] overflow-auto bg-neutral-800 text-neutral-300 p-2 font-mono tracking-wide resize"
       onClick={focusInput}
     >
       {history.map((line, index) => (
