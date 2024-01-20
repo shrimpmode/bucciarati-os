@@ -17,7 +17,6 @@ export const Desktop = () => {
 
   return (
     <div className="relative">
-      {applications.currentApplication?.name} asd
       {applications.map((app: Application) => {
         const component = appComponentFactory(app.metadata.name);
         const isAppActive =
