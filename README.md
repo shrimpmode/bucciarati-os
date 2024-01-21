@@ -1,6 +1,7 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## macOS clone built with React, Next.js, Tailwind, and Redux Toolkit
 
-## Getting Started
+![image](https://github.com/shrimpmode/bucciarati-os/assets/19338898/77a7e6a0-cebd-4bb0-90db-fe1446f06224)
+
 
 First, run the development server:
 
